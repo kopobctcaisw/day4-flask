@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block title %}<title>루미나 | 피드</title>{% endblock %}
+
+{% block content %}
+<main class="max-w-[1120px] mx-auto px-6 py-12">
+  <!-- Hero Section -->
+  <section class="mb-16">
+    <div class="flex flex-col gap-4 max-w-2xl">
+      <span class="font-label-sm text-secondary uppercase tracking-widest">에디토리얼 게시판</span>
+      <h1 class="font-h1 text-h1 text-primary">당신의 이야기를 들려주세요.</h1>
+      <p class="font-body-lg text-body-lg text-on-surface-variant">집중과 명상, 일상의 성찰을 나누는 공간입니다.</p>
+    </div>
+  </section>
+
+  <!-- Section Title -->
+  <div class="flex justify-between items-end border-b border-[#E5E4D2] pb-4 mb-10">
+    <h2 class="font-h3 text-h3 text-primary">모든 글</h2>
+    <span class="font-label-sm text-stone-400">{{ posts|length }}개의 글</span>
+  </div>
+
+  {% if posts %}
+  <!-- Post List -->
+  <div class="space-y-12">
+    {% for post in posts %}
+    <article class="flex flex-col md:flex-row gap-8 items-start group cursor-pointer">
+      <div class="w-full md:w-1/3 aspect-square md:aspect-[4/3] rounded-lg overflow-hidden bg-[#F5F5DC] flex items-center justify-center">
+        <span class="material-symbols-outlined text-5xl text-stone-300">article</span>
+      </div>
+      <div class="w-full md:w-2/3 py-2">
+        <time class="font-label-sm text-stone-400 text-xs mb-2 block tracking-widest">{{ post.created_at|korean_date }}</time>
+        <a href="/post/{{ post.id }}" class="block">
+          <h3 class="font-h3 text-h3 text-primary mb-4 group-hover:text-secondary transition-colors">{{ post.title }}</h3>
+        </a>
+        <p class="font-body-md text-body-md text-on-surface-variant mb-6 leading-relaxed line-clamp-2">{{ post.content[:120] }}{% if post.content|length > 120 %}...{% endif %}</p>
+        <a href="/post/{{ post.id }}" class="inline-flex items-center gap-1 text-secondary font-label-sm hover:text-primary transition-colors">
+          더 읽기
+          <span class="material-symbols-outlined text-sm">arrow_forward</span>
+        </a>
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+  {% else %}
+  <!-- Empty State -->
+  <div class="text-center py-20">
+    <span class="material-symbols-outlined text-6xl text-stone-300 mb-6 block">edit_note</span>
+    <h3 class="font-h3 text-h3 text-primary mb-3">아직 글이 없습니다</h3>
+    <p class="font-body-md text-body-md text-on-surface-variant mb-8">첫 번째 글을 작성해보세요.</p>
+    <a href="/write" class="inline-flex items-center gap-2 bg-[#4A4A40] text-white px-6 py-3 rounded-full font-label-sm hover:opacity-90 transition-all active:scale-95">
+      <span class="material-symbols-outlined text-sm">edit</span>
+      글쓰기
+    </a>
+  </div>
+  {% endif %}
+</main>
+{% endblock %}

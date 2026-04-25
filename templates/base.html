@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html class="light" lang="ko">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+{% block title %}<title>루미나 | 에디토리얼 게시판</title>{% endblock %}
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      colors: {
+        "on-tertiary-fixed-variant": "#4c454b",
+        "tertiary-fixed-dim": "#cec4cb",
+        "on-secondary": "#ffffff",
+        "surface-container-highest": "#e5e2e0",
+        "outline": "#78776f",
+        "surface": "#fdf8f6",
+        "on-tertiary": "#ffffff",
+        "on-tertiary-fixed": "#1f1a1f",
+        "tertiary-fixed": "#ebdfe7",
+        "tertiary-container": "#4e474d",
+        "on-error-container": "#93000a",
+        "secondary": "#725a39",
+        "secondary-fixed": "#feddb3",
+        "on-secondary-fixed-variant": "#584324",
+        "secondary-fixed-dim": "#e1c299",
+        "on-tertiary-container": "#c0b6bd",
+        "surface-container-lowest": "#ffffff",
+        "on-secondary-container": "#765f3d",
+        "inverse-surface": "#31302f",
+        "surface-bright": "#fdf8f6",
+        "on-secondary-fixed": "#281801",
+        "surface-variant": "#e5e2e0",
+        "primary-container": "#4a4a40",
+        "on-primary-fixed": "#1c1c14",
+        "outline-variant": "#c9c7bd",
+        "on-primary-container": "#bbb9ad",
+        "on-surface": "#1c1b1a",
+        "primary-fixed-dim": "#c8c7ba",
+        "tertiary": "#373136",
+        "error-container": "#ffdad6",
+        "on-surface-variant": "#474740",
+        "primary": "#33332a",
+        "secondary-container": "#fbdbb0",
+        "error": "#ba1a1a",
+        "on-primary-fixed-variant": "#47473d",
+        "inverse-primary": "#c8c7ba",
+        "surface-container-high": "#ebe7e5",
+        "background": "#fdf8f6",
+        "on-background": "#1c1b1a",
+        "surface-container": "#f1edeb",
+        "surface-dim": "#ddd9d7",
+        "surface-tint": "#5f5f54",
+        "inverse-on-surface": "#f4f0ee",
+        "on-primary": "#ffffff",
+        "surface-container-low": "#f7f3f1",
+        "on-error": "#ffffff",
+        "primary-fixed": "#e5e3d5"
+      },
+      borderRadius: {
+        DEFAULT: "0.25rem",
+        lg: "0.5rem",
+        xl: "0.75rem",
+        full: "9999px"
+      },
+      spacing: {
+        "stack-md": "1.5rem",
+        "stack-lg": "3rem",
+        "container-max": "1120px",
+        "stack-sm": "0.5rem",
+        "margin-mobile": "1rem",
+        gutter: "1.5rem"
+      },
+      fontFamily: {
+        h1: ["Manrope", "sans-serif"],
+        "label-sm": ["Work Sans", "sans-serif"],
+        h2: ["Manrope", "sans-serif"],
+        h3: ["Manrope", "sans-serif"],
+        "body-md": ["Work Sans", "sans-serif"],
+        "body-lg": ["Work Sans", "sans-serif"],
+        manrope: ["Manrope", "sans-serif"]
+      },
+      fontSize: {
+        h1: ["40px", {lineHeight: "1.2", letterSpacing: "-0.02em", fontWeight: "700"}],
+        "label-sm": ["14px", {lineHeight: "1.2", letterSpacing: "0.05em", fontWeight: "500"}],
+        h2: ["32px", {lineHeight: "1.3", letterSpacing: "-0.01em", fontWeight: "600"}],
+        h3: ["24px", {lineHeight: "1.4", fontWeight: "600"}],
+        "body-md": ["16px", {lineHeight: "1.6", fontWeight: "400"}],
+        "body-lg": ["18px", {lineHeight: "1.6", fontWeight: "400"}]
+      }
+    }
+  }
+}
+</script>
+<style>
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  vertical-align: middle;
+}
+body { background-color: #FAF9F6; }
+.editor-focus:focus { outline: none; }
+</style>
+</head>
+<body class="font-body-md text-on-surface antialiased">
+
+<!-- TopNavBar -->
+<header class="docked full-width top-0 sticky z-50 bg-[#FAF9F6] border-b border-[#E5E4D2] shadow-[0_4px_20px_-10px_rgba(74,74,64,0.08)]">
+<nav class="flex justify-between items-center w-full max-w-[1120px] mx-auto px-6 py-4 font-manrope antialiased tracking-tight">
+  <a href="/" class="text-2xl font-semibold tracking-tighter text-[#4A4A40]">루미나</a>
+  <div class="hidden md:flex items-center gap-8">
+    <a class="{% if request.path == '/' %}text-[#4A4A40] font-bold border-b-2 border-[#4A4A40] pb-1{% else %}text-stone-500 hover:text-[#4A4A40] transition-colors{% endif %}" href="/">피드</a>
+    <a class="{% if request.path == '/write' %}text-[#4A4A40] font-bold border-b-2 border-[#4A4A40] pb-1{% else %}text-stone-500 hover:text-[#4A4A40] transition-colors{% endif %}" href="/write">글쓰기</a>
+  </div>
+  <div class="flex items-center gap-4">
+    <a href="/write" class="bg-[#4A4A40] text-white px-5 py-2 rounded-full font-label-sm hover:opacity-90 transition-all active:scale-95">글쓰기</a>
+  </div>
+</nav>
+</header>
+
+{% block content %}{% endblock %}
+
+<!-- Footer -->
+<footer class="full-width mt-20 bg-[#F5F5DC] border-t border-[#E5E4D2]">
+<div class="flex flex-col md:flex-row justify-between items-center w-full max-w-[1120px] mx-auto px-6 py-12 gap-4">
+  <div class="flex flex-col items-center md:items-start gap-2">
+    <span class="font-bold text-[#4A4A40] text-xl font-manrope tracking-tighter">루미나</span>
+    <p class="font-manrope text-sm uppercase tracking-widest text-stone-500">&copy; 2024 루미나. 디지털 웰니스를 위해 디자인되었습니다.</p>
+  </div>
+  <div class="flex gap-8 items-center">
+    <a class="font-manrope text-sm uppercase tracking-widest text-stone-500 hover:text-[#4A4A40] transition-colors" href="#">개인정보 처리방침</a>
+    <a class="font-manrope text-sm uppercase tracking-widest text-stone-500 hover:text-[#4A4A40] transition-colors" href="#">이용약관</a>
+  </div>
+</div>
+</footer>
+
+</body>
+</html>

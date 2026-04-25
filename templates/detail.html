@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block title %}<title>루미나 | {{ post.title }}</title>{% endblock %}
+
+{% block content %}
+<main class="max-w-[1120px] mx-auto px-6 pt-12 pb-24">
+  <!-- Back & Actions -->
+  <div class="mb-12 flex justify-between items-center">
+    <a href="/" class="flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors font-label-sm group">
+      <span class="material-symbols-outlined text-sm group-hover:-translate-x-1 transition-transform">arrow_back</span>
+      목록으로
+    </a>
+  </div>
+
+  <!-- Post Content -->
+  <article class="max-w-[800px] mx-auto">
+    <div class="mb-8">
+      <span class="bg-secondary-fixed text-on-secondary-fixed-variant px-3 py-1 rounded-full text-[12px] font-bold uppercase tracking-widest">게시글</span>
+      <h1 class="font-h1 text-h1 text-primary mt-6 mb-4">{{ post.title }}</h1>
+      <div class="flex items-center gap-4 text-on-surface-variant font-label-sm">
+        <span>루미나 에디터</span>
+        <span class="w-1 h-1 rounded-full bg-outline-variant"></span>
+        <span>{{ post.created_at|korean_date }}</span>
+      </div>
+    </div>
+
+    <!-- Post Body -->
+    <div class="font-body-lg text-body-lg text-on-surface-variant space-y-8 leading-relaxed">
+      {% for paragraph in post.content.split('\n') %}
+        {% if paragraph %}
+        <p>{{ paragraph }}</p>
+        {% endif %}
+      {% endfor %}
+    </div>
+
+    <!-- Post Footer -->
+    <div class="mt-16 pt-8 border-t border-outline-variant flex justify-between items-center">
+      <div class="flex flex-wrap gap-2">
+        <span class="bg-[#F5F5DC] text-on-surface-variant px-3 py-1 rounded-full text-[12px] font-medium">#게시글</span>
+      </div>
+      <a href="/" class="flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors font-label-sm">
+        <span class="material-symbols-outlined text-sm">arrow_back</span>
+        목록으로 돌아가기
+      </a>
+    </div>
+  </article>
+</main>
+{% endblock %}
