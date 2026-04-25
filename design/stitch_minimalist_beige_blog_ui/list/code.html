@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+
+<html class="light" lang="ko"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Work+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary-fixed-variant": "#4c454b",
+                    "tertiary-fixed-dim": "#cec4cb",
+                    "on-secondary": "#ffffff",
+                    "surface-container-highest": "#e5e2e0",
+                    "outline": "#78776f",
+                    "surface": "#fdf8f6",
+                    "on-tertiary": "#ffffff",
+                    "on-tertiary-fixed": "#1f1a1f",
+                    "tertiary-fixed": "#ebdfe7",
+                    "tertiary-container": "#4e474d",
+                    "on-error-container": "#93000a",
+                    "secondary": "#725a39",
+                    "secondary-fixed": "#feddb3",
+                    "on-secondary-fixed-variant": "#584324",
+                    "secondary-fixed-dim": "#e1c299",
+                    "on-tertiary-container": "#c0b6bd",
+                    "surface-container-lowest": "#ffffff",
+                    "on-secondary-container": "#765f3d",
+                    "inverse-surface": "#31302f",
+                    "surface-bright": "#fdf8f6",
+                    "on-secondary-fixed": "#281801",
+                    "surface-variant": "#e5e2e0",
+                    "primary-container": "#4a4a40",
+                    "on-primary-fixed": "#1c1c14",
+                    "outline-variant": "#c9c7bd",
+                    "on-primary-container": "#bbb9ad",
+                    "on-surface": "#1c1b1a",
+                    "primary-fixed-dim": "#c8c7ba",
+                    "tertiary": "#373136",
+                    "error-container": "#ffdad6",
+                    "on-surface-variant": "#474740",
+                    "primary": "#33332a",
+                    "secondary-container": "#fbdbb0",
+                    "error": "#ba1a1a",
+                    "on-primary-fixed-variant": "#47473d",
+                    "inverse-primary": "#c8c7ba",
+                    "surface-container-high": "#ebe7e5",
+                    "background": "#fdf8f6",
+                    "on-background": "#1c1b1a",
+                    "surface-container": "#f1edeb",
+                    "surface-dim": "#ddd9d7",
+                    "surface-tint": "#5f5f54",
+                    "inverse-on-surface": "#f4f0ee",
+                    "on-primary": "#ffffff",
+                    "surface-container-low": "#f7f3f1",
+                    "on-error": "#ffffff",
+                    "primary-fixed": "#e5e3d5"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-md": "1.5rem",
+                    "stack-lg": "3rem",
+                    "container-max": "1120px",
+                    "stack-sm": "0.5rem",
+                    "margin-mobile": "1rem",
+                    "gutter": "1.5rem"
+            },
+            "fontFamily": {
+                    "h1": ["Manrope"],
+                    "label-sm": ["Work Sans"],
+                    "h2": ["Manrope"],
+                    "h3": ["Manrope"],
+                    "body-md": ["Work Sans"],
+                    "body-lg": ["Work Sans"]
+            },
+            "fontSize": {
+                    "h1": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-sm": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "h2": ["32px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "h3": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        body {
+            background-color: #FAF9F6;
+        }
+    </style>
+</head>
+<body class="font-body-md text-on-surface antialiased">
+<!-- TopNavBar -->
+<header class="docked full-width top-0 sticky z-50 bg-[#FAF9F6] border-b border-[#E5E4D2] shadow-[0_4px_20px_-10px_rgba(74,74,64,0.08)]">
+<nav class="flex justify-between items-center w-full max-w-[1120px] mx-auto px-6 py-4 font-manrope antialiased tracking-tight">
+<div class="text-2xl font-semibold tracking-tighter text-[#4A4A40]">루미나</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-[#4A4A40] font-bold border-b-2 border-[#4A4A40] pb-1" href="#">피드</a>
+<a class="text-stone-500 hover:text-[#4A4A40] transition-colors" href="#">글쓰기</a>
+<a class="text-stone-500 hover:text-[#4A4A40] transition-colors" href="#">아카이브</a>
+</div>
+<div class="flex items-center gap-6">
+<div class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-stone-400">search</span>
+<input class="bg-[#F5F5DC] border-none rounded-full py-2 pl-10 pr-4 text-sm focus:ring-1 focus:ring-[#4A4A40] w-48 transition-all" placeholder="검색..." type="text"/>
+</div>
+<button class="bg-[#4A4A40] text-white px-5 py-2 rounded-full font-label-sm hover:opacity-90 transition-all active:scale-95">구독하기</button>
+<img alt="작가 프로필" class="w-10 h-10 rounded-full object-cover border border-[#E5E4D2]" data-alt="Close-up portrait of a professional woman with a kind expression in soft, natural window lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAcq2NpMKa3uF4vq209ZMmvmraQx--jaBIV_yiJZt_OOPLSWxtTscfHdJycGmozMkGoUQzwM6iwxo4hzmFE6zDHgmb5ifBGOUkcoOVULBsP7I5jf00q12TBFccYEbDPFfiOmdwT4DPFwNGzHOxE1Aglv1zYweLWIvKfCoerbLEJdYysj1WW4AwBB6ENv0E-sYwmuI0ERRlqsr94W_g4NkkieJPrw1g7cU4EDSAQZ9mcGJ3Ux8BUoJNBLyzhcHaxS_9Es22CEltufA"/>
+</div>
+</nav>
+</header>
+<main class="max-w-[1120px] mx-auto px-6 py-12">
+<!-- Hero Section -->
+<section class="mb-16">
+<div class="flex flex-col gap-4 max-w-2xl">
+<span class="font-label-sm text-secondary uppercase tracking-widest">디지털 웰니스 저널</span>
+<h1 class="font-h1 text-h1 text-primary">주의 산만한 세상에서 당신의 집중력을 가꾸세요.</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">의도적인 삶, 딥 워크, 그리고 기술과 인간의 번영이 교차하는 지점에 대한 엄선된 에세이를 전합니다.</p>
+</div>
+</section>
+<!-- Featured Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
+<!-- Large Featured Post -->
+<article class="md:col-span-2 group cursor-pointer">
+<div class="relative overflow-hidden rounded-lg mb-6 aspect-[16/9] bg-[#F5F5DC]">
+<img alt="미니멀한 작업 공간" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="A clean minimalist wooden desk with a single notebook, a fountain pen, and a small green plant in soft morning sunlight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAAZOECVNjiaMEBN4yRFgmuIzv-jVHkls68Pl5lAIG-xLzHv1MnC3g13o2GOYwJ-J22fLbeJ_Q0ZU6vwrTfCNo_z2wdU2PGYQ2Ir1kdRwpr8C2WuAt8Sr3jdDV_Ee8bmLrtzwnN1tqxi7ZZJKi9Jsa7um5FriKumR6voYTHYFeS7pMhMZQQR90B-HsMR7TtXj5gN1XgqsC1PNc4HlFgADFzGnlqNPGPT6t3E-7mTAfZqYZHCqODsUOsjNdzd-3T-3fwRzu5QT1RVg"/>
+<div class="absolute top-4 left-4">
+<span class="bg-primary text-white font-label-sm px-3 py-1 rounded-full text-xs">추천 게시글</span>
+</div>
+</div>
+<div class="flex gap-4 items-center mb-3">
+<span class="font-label-sm text-secondary uppercase text-[12px]">마음챙김</span>
+<span class="w-1 h-1 bg-outline-variant rounded-full"></span>
+<time class="font-label-sm text-stone-500 text-[12px]">2023년 10월 24일</time>
+</div>
+<h2 class="font-h2 text-h2 text-primary group-hover:text-secondary transition-colors mb-4">침묵의 구조: 깊은 사고를 위한 공간 디자인</h2>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2">물리적 환경이 인지 부하에 미치는 영향과, 가장 생산적인 공간이 우리에게 아무것도 요구하지 않는 공간인 이유.</p>
+</article>
+<!-- Secondary Vertical Post -->
+<article class="bg-[#F5F5DC] p-8 rounded-lg flex flex-col justify-between border border-[#E5E4D2] hover:shadow-[0_8px_30px_rgb(74,74,64,0.05)] transition-all group cursor-pointer">
+<div>
+<span class="font-label-sm text-secondary uppercase text-[12px] mb-4 block">생산성</span>
+<h3 class="font-h3 text-h3 text-primary mb-4 leading-tight group-hover:text-secondary transition-colors">할 일 목록을 넘어서: '안티 골(Anti-Goals)'의 힘</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 line-clamp-4">전통적인 계획은 달성하고 싶은 것에 집중합니다. 안티 골은 피하고 싶은 것에 집중하여, 성공으로 가는 더 지속 가능한 경로를 만듭니다.</p>
+</div>
+<div class="flex items-center gap-3">
+<img alt="작가" class="w-8 h-8 rounded-full border border-white" data-alt="Portrait of a male author with glasses and a thoughtful expression, warm studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCtivIdxMFb3QhgM_RvzGMWiOlW2rdMHVE8FXSakCG7OY30T2xbBlEZcYwRiPf1IBL0x-KLH9Nm_jJbJsxm_rMxpW_-E3Hg2A0IEt6xOqQI-zRFp8yVczKtTY_AgpJt5oxEaS7dVXwj7bl5cwIU6ApSlwp6qcUAhx_le24gyyNIDUkTUhUife70-6Uaw3-ZbDvmVxPAq7Rn9mh-RWKWPquhTVCMpM37tJmgEwIWr6fwR51_nrY8EA4_WyE-O84lAsTaCur4gKf27A"/>
+<div class="flex flex-col">
+<span class="text-xs font-bold text-primary">줄리안 밴스</span>
+<span class="text-[10px] text-stone-500">읽기 시간 6분</span>
+</div>
+</div>
+</article>
+</div>
+<!-- Section Title -->
+<div class="flex justify-between items-end border-b border-[#E5E4D2] pb-4 mb-10">
+<h2 class="font-h3 text-h3 text-primary">최신 아카이브</h2>
+<div class="flex gap-4">
+<button class="text-stone-500 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">grid_view</span>
+</button>
+<button class="text-primary">
+<span class="material-symbols-outlined">view_list</span>
+</button>
+</div>
+</div>
+<!-- Asymmetric List Layout -->
+<div class="space-y-12">
+<!-- List Item 1 -->
+<article class="flex flex-col md:flex-row gap-8 items-start group cursor-pointer">
+<div class="w-full md:w-1/3 aspect-square md:aspect-[4/3] rounded-lg overflow-hidden bg-[#F5F5DC]">
+<img alt="추상적인 질감" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="High-contrast close-up of textured handmade paper with subtle shadows and organic edges" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAFSOqn4uvjagRKw2SqtSLUxCP4E5ziLklmVCyayzm7Srx70OAkQ-88_96R0PO4S2Z0IJ84WGq0W5sXPT7r3zMJHHInj8-IPQXJdmYLjVSZoF43TNDcQ5aPh1g-TY7j-vOi2FTlL7YsMTJO934Asn16rajt42FTQw0tBnrH8chVTru2z2-ZergxRrs6TENr9LnGnKA5f8CklhF6GmfDe6EaikrIuYrHmDt3xjm57Cx0HBP5MbowKfmsMOurQOqQriS0acg3kC5QNA"/>
+</div>
+<div class="w-full md:w-2/3 py-2">
+<time class="font-label-sm text-stone-400 text-xs mb-2 block tracking-widest">2023년 9월 12일</time>
+<h3 class="font-h3 text-h3 text-primary mb-4 group-hover:text-secondary transition-colors">현대 창작자를 위한 디지털 미니멀리즘</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 leading-relaxed">끊임없는 알림의 시대에 집중력을 되찾는 법. 효과적인 30일간의 디지털 정리를 위한 실질적인 단계들.</p>
+<div class="flex gap-2">
+<span class="font-label-sm px-3 py-1 bg-[#F5F5DC] rounded-full text-[10px] text-stone-600 border border-[#E5E4D2]">에세이</span>
+<span class="font-label-sm px-3 py-1 bg-[#F5F5DC] rounded-full text-[10px] text-stone-600 border border-[#E5E4D2]">창의성</span>
+</div>
+</div>
+</article>
+<!-- List Item 2 -->
+<article class="flex flex-col md:flex-row gap-8 items-start group cursor-pointer">
+<div class="w-full md:w-1/3 aspect-square md:aspect-[4/3] rounded-lg overflow-hidden bg-[#F5F5DC]">
+<img alt="아침 햇살" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Soft sunlight streaming through a window onto a stack of linen-covered books on a wooden floor" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMXni6EmVXqF1uh1dO51Dh5UV8rFsR9KCpLvwqUP8jkFpRRyhGWau1kX6mxlFIn7hmFiAUrOsZdkYzQhWmdnxYk0SPDS5qqgQsDGICnEd3-YT2FbG74d9N1-dHzFTz1H2XMKvfWgX08KELFqXT0c_LgcpcQcAt03oivcah-K9Dbfh6__vfxangLhkGc7teQ2L6UhiBzhHI9Ujtdybjg5FQATOlqEMmk5TiYYoNac-neNBYD63lWPmeZnH6DigCN6obo-zIr4sYqw"/>
+</div>
+<div class="w-full md:w-2/3 py-2">
+<time class="font-label-sm text-stone-400 text-xs mb-2 block tracking-widest">2023년 8월 29일</time>
+<h3 class="font-h3 text-h3 text-primary mb-4 group-hover:text-secondary transition-colors">슬로우 인포메이션 운동</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 leading-relaxed">수백 개의 헤드라인을 훑어보는 것보다 한 편의 고품질 장문 에세이를 읽는 것이 더 가치 있는 이유. 깊이 읽기의 뇌과학.</p>
+<div class="flex gap-2">
+<span class="font-label-sm px-3 py-1 bg-[#F5F5DC] rounded-full text-[10px] text-stone-600 border border-[#E5E4D2]">웰니스</span>
+<span class="font-label-sm px-3 py-1 bg-[#F5F5DC] rounded-full text-[10px] text-stone-600 border border-[#E5E4D2]">습관</span>
+</div>
+</div>
+</article>
+<!-- List Item 3 -->
+<article class="flex flex-col md:flex-row gap-8 items-start group cursor-pointer">
+<div class="w-full md:w-1/3 aspect-square md:aspect-[4/3] rounded-lg overflow-hidden bg-[#F5F5DC]">
+<img alt="안개" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A tranquil lake shrouded in morning mist with a small wooden pier disappearing into the fog, ethereal lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCCbEoj8TMG0gY0dhwSlOfpQYxWGYF9KmIA4T0PIwiKzXM4hpr0gd357q-NxY8naIrj8vVxa56iIaUVbek48OhpHK2CVkDEUaMuNIFoxEL9-w8GQ5g6XBSTWsg4CmudxzEBAQeC4wiMkgIVpeEzsp3AkTK2irTxzxLXKTzi7PORpHLWVL272Nvyji0cvlkB_o4K5WGwYyz81zYMjBsApR-Xj4A8hTg5N9Z4OTqyDM-iq2owA5fPizACzQ9himf_cT4m8RmKs6y84g"/>
+</div>
+<div class="w-full md:w-2/3 py-2">
+<time class="font-label-sm text-stone-400 text-xs mb-2 block tracking-widest">2023년 8월 5일</time>
+<h3 class="font-h3 text-h3 text-primary mb-4 group-hover:text-secondary transition-colors">공허함을 받아들이기: 지루함의 필요성</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 leading-relaxed">끊임없는 자극이 우리의 타고난 호기심을 어떻게 죽이고 있는지, 그리고 왜 일상에 다시 침묵을 초대해야 하는지에 대하여.</p>
+<div class="flex gap-2">
+<span class="font-label-sm px-3 py-1 bg-[#F5F5DC] rounded-full text-[10px] text-stone-600 border border-[#E5E4D2]">철학</span>
+</div>
+</div>
+</article>
+</div>
+<!-- Pagination -->
+<div class="mt-20 flex justify-center items-center gap-4">
+<button class="w-10 h-10 flex items-center justify-center rounded-full border border-[#E5E4D2] text-stone-400 hover:text-primary hover:border-primary transition-all">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<span class="font-label-sm text-primary font-bold">1</span>
+<span class="font-label-sm text-stone-400">2</span>
+<span class="font-label-sm text-stone-400">3</span>
+<span class="text-stone-400">...</span>
+<span class="font-label-sm text-stone-400">12</span>
+<button class="w-10 h-10 flex items-center justify-center rounded-full border border-[#E5E4D2] text-stone-400 hover:text-primary hover:border-primary transition-all">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</main>
+<!-- Footer -->
+<footer class="full-width mt-20 bg-[#F5F5DC] border-t border-[#E5E4D2]">
+<div class="flex flex-col md:flex-row justify-between items-center w-full max-w-[1120px] mx-auto px-6 py-12 gap-4">
+<div class="flex flex-col items-center md:items-start gap-2">
+<span class="font-bold text-[#4A4A40] text-xl font-manrope tracking-tighter">루미나</span>
+<p class="font-manrope text-sm uppercase tracking-widest text-stone-500">© 2024 루미나. 디지털 웰니스를 위해 디자인되었습니다.</p>
+</div>
+<div class="flex gap-8 items-center">
+<a class="font-manrope text-sm uppercase tracking-widest text-stone-500 hover:text-[#4A4A40] transition-colors" href="#">개인정보 처리방침</a>
+<a class="font-manrope text-sm uppercase tracking-widest text-stone-500 hover:text-[#4A4A40] transition-colors" href="#">이용약관</a>
+<a class="font-manrope text-sm uppercase tracking-widest text-stone-500 hover:text-[#4A4A40] transition-colors" href="#">RSS 피드</a>
+</div>
+<div class="flex gap-4">
+<button class="w-8 h-8 rounded-full bg-[#FAF9F6] flex items-center justify-center text-[#4A4A40] border border-[#E5E4D2] hover:bg-white transition-all">
+<span class="material-symbols-outlined text-sm">mail</span>
+</button>
+<button class="w-8 h-8 rounded-full bg-[#FAF9F6] flex items-center justify-center text-[#4A4A40] border border-[#E5E4D2] hover:bg-white transition-all">
+<span class="material-symbols-outlined text-sm">rss_feed</span>
+</button>
+</div>
+</div>
+</footer>
+</body></html>

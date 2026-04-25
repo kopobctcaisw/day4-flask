@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Work+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+                  "on-tertiary-fixed-variant": "#4c454b",
+                  "tertiary-fixed-dim": "#cec4cb",
+                  "on-secondary": "#ffffff",
+                  "surface-container-highest": "#e5e2e0",
+                  "outline": "#78776f",
+                  "surface": "#fdf8f6",
+                  "on-tertiary": "#ffffff",
+                  "on-tertiary-fixed": "#1f1a1f",
+                  "tertiary-fixed": "#ebdfe7",
+                  "tertiary-container": "#4e474d",
+                  "on-error-container": "#93000a",
+                  "secondary": "#725a39",
+                  "secondary-fixed": "#feddb3",
+                  "on-secondary-fixed-variant": "#584324",
+                  "secondary-fixed-dim": "#e1c299",
+                  "on-tertiary-container": "#c0b6bd",
+                  "surface-container-lowest": "#ffffff",
+                  "on-secondary-container": "#765f3d",
+                  "inverse-surface": "#31302f",
+                  "surface-bright": "#fdf8f6",
+                  "on-secondary-fixed": "#281801",
+                  "surface-variant": "#e5e2e0",
+                  "primary-container": "#4a4a40",
+                  "on-primary-fixed": "#1c1c14",
+                  "outline-variant": "#c9c7bd",
+                  "on-primary-container": "#bbb9ad",
+                  "on-surface": "#1c1b1a",
+                  "primary-fixed-dim": "#c8c7ba",
+                  "tertiary": "#373136",
+                  "error-container": "#ffdad6",
+                  "on-surface-variant": "#474740",
+                  "primary": "#33332a",
+                  "secondary-container": "#fbdbb0",
+                  "error": "#ba1a1a",
+                  "on-primary-fixed-variant": "#47473d",
+                  "inverse-primary": "#c8c7ba",
+                  "surface-container-high": "#ebe7e5",
+                  "background": "#fdf8f6",
+                  "on-background": "#1c1b1a",
+                  "surface-container": "#f1edeb",
+                  "surface-dim": "#ddd9d7",
+                  "surface-tint": "#5f5f54",
+                  "inverse-on-surface": "#f4f0ee",
+                  "on-primary": "#ffffff",
+                  "surface-container-low": "#f7f3f1",
+                  "on-error": "#ffffff",
+                  "primary-fixed": "#e5e3d5"
+          },
+          "borderRadius": {
+                  "DEFAULT": "0.25rem",
+                  "lg": "0.5rem",
+                  "xl": "0.75rem",
+                  "full": "9999px"
+          },
+          "spacing": {
+                  "stack-md": "1.5rem",
+                  "stack-lg": "3rem",
+                  "container-max": "1120px",
+                  "stack-sm": "0.5rem",
+                  "margin-mobile": "1rem",
+                  "gutter": "1.5rem"
+          },
+          "fontFamily": {
+                  "h1": ["Manrope"],
+                  "label-sm": ["Work Sans"],
+                  "h2": ["Manrope"],
+                  "h3": ["Manrope"],
+                  "body-md": ["Work Sans"],
+                  "body-lg": ["Work Sans"]
+          },
+          "fontSize": {
+                  "h1": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                  "label-sm": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                  "h2": ["32px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                  "h3": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                  "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                  "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      vertical-align: middle;
+    }
+    body {
+      background-color: #FAF9F6;
+    }
+    .editor-focus:focus {
+      outline: none;
+    }
+  </style>
+</head>
+<body class="bg-surface font-body-md text-on-surface antialiased">
+<!-- TopNavBar -->
+<nav class="bg-[#FAF9F6] dark:bg-stone-900 border-b border-[#E5E4D2] dark:border-stone-800 shadow-[0_4px_20px_-10px_rgba(74,74,64,0.08)] docked full-width top-0 sticky z-50 font-manrope antialiased tracking-tight">
+<div class="flex justify-between items-center w-full max-w-[1120px] mx-auto px-6 py-4">
+<div class="flex items-center gap-8">
+<span class="text-2xl font-semibold tracking-tighter text-[#4A4A40] dark:text-stone-100">Lumina</span>
+<div class="hidden md:flex gap-6">
+<a class="text-stone-500 dark:text-stone-400 hover:text-[#4A4A40] transition-colors" href="#">Feed</a>
+<a class="text-[#4A4A40] dark:text-stone-100 font-bold border-b-2 border-[#4A4A40] pb-1" href="#">Write</a>
+<a class="text-stone-500 dark:text-stone-400 hover:text-[#4A4A40] transition-colors" href="#">Archive</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden md:flex items-center bg-[#F5F5DC] dark:bg-stone-800 rounded-full px-4 py-1.5 border border-[#E5E4D2] dark:border-stone-700">
+<span class="material-symbols-outlined text-stone-500 mr-2" data-icon="search">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm w-32 font-body-md" placeholder="Search..." type="text"/>
+</div>
+<button class="bg-primary-container text-on-primary rounded-full px-6 py-2 text-label-sm font-label-sm hover:opacity-90 transition-all">Subscribe</button>
+<img alt="Author profile" class="w-10 h-10 rounded-full border-2 border-primary-fixed" data-alt="Close-up portrait of a serene woman with a soft smile in natural outdoor lighting, professional and calm aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA8T--XJ8nznGF_Ai9yvWY17B5iPDvELarUnZE_0jvcNTJoXMa_EYPappEgRwpfkLsJJ14gBYByLp6q--hDSJyNHlWJjdhCSx4kbDRCs3VO9jLFV-N-tR4JM65nwWYptYoDtiUAAJHV_DwNMCPa8VgZ8qJVX07uL1UhC9d_7R7t-UlIIY8D5QH4g1OcduU_cJhYyJZdvDMfhn5JSacAveCeu6DjGTyrGiRh2OX6IhrHzum_6jZ0FUkmv3VCmXWacnfje3rT4XWYWQ"/>
+</div>
+</div>
+</nav>
+<main class="max-w-[1120px] mx-auto px-6 py-12">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+<!-- Editor Canvas -->
+<div class="lg:col-span-8">
+<div class="space-y-8">
+<!-- Title Input -->
+<div class="group">
+<input class="w-full bg-transparent border-none p-0 font-h1 text-h1 text-on-surface placeholder:text-surface-variant focus:ring-0 editor-focus" placeholder="Enter your title..." type="text"/>
+<div class="h-[1px] w-0 group-focus-within:w-full bg-primary-container transition-all duration-500 mt-2"></div>
+</div>
+<!-- Metadata / Controls -->
+<div class="flex items-center gap-4 py-4 border-y border-outline-variant/30">
+<button class="flex items-center gap-2 text-secondary font-label-sm text-label-sm hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="image">image</span>
+              Add Cover
+            </button>
+<div class="w-[1px] h-4 bg-outline-variant"></div>
+<button class="flex items-center gap-2 text-secondary font-label-sm text-label-sm hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="sell">sell</span>
+              Add Tags
+            </button>
+<div class="w-[1px] h-4 bg-outline-variant"></div>
+<span class="text-outline text-label-sm font-label-sm">Saved as draft</span>
+</div>
+<!-- Content Area -->
+<div class="min-h-[500px]">
+<textarea class="w-full bg-transparent border-none p-0 font-body-lg text-body-lg text-on-surface-variant placeholder:text-surface-variant focus:ring-0 resize-none editor-focus leading-relaxed h-[600px]" placeholder="Tell your story..."></textarea>
+</div>
+</div>
+</div>
+<!-- Sidebar Controls -->
+<div class="lg:col-span-4 space-y-6">
+<div class="bg-[#F5F5DC] dark:bg-stone-800 p-8 rounded-xl border border-[#E5E4D2] dark:border-stone-700 shadow-[0_4px_20px_-10px_rgba(74,74,64,0.08)] sticky top-28">
+<h3 class="font-h3 text-h3 text-on-surface mb-6">Publish Settings</h3>
+<div class="space-y-6">
+<!-- Visibility -->
+<div class="space-y-2">
+<label class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Visibility</label>
+<div class="flex items-center justify-between p-3 bg-surface-container-lowest rounded-lg border border-outline-variant">
+<span class="font-body-md text-on-surface">Public</span>
+<span class="material-symbols-outlined text-primary" data-icon="expand_more">expand_more</span>
+</div>
+</div>
+<!-- Schedule -->
+<div class="space-y-2">
+<label class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Schedule</label>
+<div class="flex items-center justify-between p-3 bg-surface-container-lowest rounded-lg border border-outline-variant">
+<span class="font-body-md text-on-surface">Publish immediately</span>
+<span class="material-symbols-outlined text-primary" data-icon="calendar_today">calendar_today</span>
+</div>
+</div>
+<!-- Category Chips -->
+<div class="space-y-2">
+<label class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Categorization</label>
+<div class="flex flex-wrap gap-2 pt-1">
+<span class="px-3 py-1 bg-secondary-fixed text-on-secondary-fixed-variant rounded-full text-[12px] font-label-sm uppercase tracking-wide">Design</span>
+<span class="px-3 py-1 bg-surface-variant text-on-surface-variant rounded-full text-[12px] font-label-sm uppercase tracking-wide">Wellness</span>
+<button class="px-3 py-1 border border-dashed border-outline rounded-full text-[12px] font-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="add">add</span>
+</button>
+</div>
+</div>
+<div class="pt-6 space-y-3">
+<button class="w-full bg-primary-container text-on-primary py-4 rounded-full font-h3 text-[18px] hover:opacity-95 transition-all shadow-lg active:scale-[0.98]">
+                Publish Now
+              </button>
+<button class="w-full bg-transparent text-primary py-3 rounded-full font-label-sm text-label-sm border border-primary/20 hover:bg-surface-variant/30 transition-all">
+                Save Draft
+              </button>
+</div>
+</div>
+</div>
+<!-- Secondary Guidance Card -->
+<div class="p-6 border border-outline-variant rounded-xl border-dashed">
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-secondary" data-icon="lightbulb">lightbulb</span>
+<div>
+<h4 class="font-h3 text-[16px] text-on-surface mb-1">Writing Tip</h4>
+<p class="text-on-surface-variant font-body-md text-sm leading-relaxed">
+                Focus on clarity. Use shorter paragraphs and generous white space to make your ideas breathe.
+              </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-[#F5F5DC] dark:bg-stone-950 border-t border-[#E5E4D2] dark:border-stone-800 full-width mt-20 font-manrope text-sm uppercase tracking-widest text-[#4A4A40] dark:text-stone-300">
+<div class="flex flex-col md:flex-row justify-between items-center w-full max-w-[1120px] mx-auto px-6 py-12 gap-4">
+<div class="flex flex-col gap-2 items-center md:items-start">
+<span class="font-bold text-[#4A4A40] dark:text-stone-100">Lumina</span>
+<span class="text-[10px] normal-case tracking-normal opacity-60">© 2024 Lumina. Designed for digital wellness.</span>
+</div>
+<div class="flex gap-8">
+<a class="text-stone-500 dark:text-stone-400 hover:text-[#4A4A40] dark:hover:text-stone-100 transition-colors" href="#">Privacy Policy</a>
+<a class="text-stone-500 dark:text-stone-400 hover:text-[#4A4A40] dark:hover:text-stone-100 transition-colors" href="#">Terms of Service</a>
+<a class="text-stone-500 dark:text-stone-400 hover:text-[#4A4A40] dark:hover:text-stone-100 transition-colors" href="#">RSS Feed</a>
+</div>
+</div>
+</footer>
+</body></html>
