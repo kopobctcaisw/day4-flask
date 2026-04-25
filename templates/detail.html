@@ -10,6 +10,18 @@
       <span class="material-symbols-outlined text-sm group-hover:-translate-x-1 transition-transform">arrow_back</span>
       목록으로
     </a>
+    <div class="flex gap-3">
+      <a href="/post/{{ post.id }}/edit" class="flex items-center gap-2 px-4 py-2 border border-outline-variant rounded-full text-on-surface-variant hover:bg-surface-container transition-all font-label-sm">
+        <span class="material-symbols-outlined text-[18px]">edit</span>
+        수정
+      </a>
+      <form method="POST" action="/post/{{ post.id }}/delete" onsubmit="return confirm('정말 삭제할까요?')">
+        <button type="submit" class="flex items-center gap-2 px-4 py-2 border border-error/20 rounded-full text-error hover:bg-error-container transition-all font-label-sm">
+          <span class="material-symbols-outlined text-[18px]">delete</span>
+          삭제
+        </button>
+      </form>
+    </div>
   </div>
 
   <!-- Post Content -->

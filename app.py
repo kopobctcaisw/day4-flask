@@ -69,5 +69,32 @@ def post_detail(post_id):
     return render_template("detail.html", post=post)
 
 
+@app.route("/post/<int:post_id>/edit", methods=["GET", "POST"])
+def edit_post(post_id):
+    conn = get_db()
+    if request.method == "POST":
+        conn.execute(
+            "UPDATE posts SET title=?, content=? WHERE id=?",
+            (request.form["title"], request.form["content"], post_id),
+        )
+        conn.commit()
+        conn.close()
+        return redirect(url_for("post_detail", post_id=post_id))
+    post = conn.execute("SELECT * FROM posts WHERE id=?", (post_id,)).fetchone()
+    conn.close()
+    if post is None:
+        return redirect(url_for("post_list"))
+    return render_template("write.html", post=post)
+
+
+@app.route("/post/<int:post_id>/delete", methods=["POST"])
+def delete_post(post_id):
+    conn = get_db()
+    conn.execute("DELETE FROM posts WHERE id=?", (post_id,))
+    conn.commit()
+    conn.close()
+    return redirect(url_for("post_list"))
+
+
 if __name__ == "__main__":
     app.run(debug=True)
