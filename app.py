@@ -5,7 +5,8 @@ import sqlite3
 
 app = Flask(__name__)
 app.jinja_env.filters["korean_date"] = lambda s: datetime.strptime(s, "%Y-%m-%d %H:%M:%S").strftime("%Y년 %m월 %d일") if isinstance(s, str) else s.strftime("%Y년 %m월 %d일")
-DB_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "board.db")
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+DB_PATH = os.environ.get("DB_PATH", os.path.join(BASE_DIR, "board.db"))
 
 
 def get_db():

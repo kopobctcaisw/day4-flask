@@ -7,3 +7,9 @@ services:
     envVars:
       - key: PYTHON_VERSION
         value: "3.12"
+      - key: DB_PATH
+        value: /var/data/board.db
+    disks:
+      - name: sqlite-data
+        mountPath: /var/data
+        sizeGB: 1
