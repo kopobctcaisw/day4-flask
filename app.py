@@ -33,12 +33,59 @@ init_db()
 
 @app.route("/")
 def post_list():
+    per_page = 10
+    try:
+        page = int(request.args.get("page", "1"))
+    except ValueError:
+        page = 1
+    page = max(1, page)
+
+    search_query = (request.args.get("q") or "").strip()
+    sort = (request.args.get("sort") or "latest").strip()
+    sort_map = {
+        "latest": "created_at DESC",
+        "oldest": "created_at ASC",
+        "title": "title COLLATE NOCASE ASC",
+    }
+    order_by = sort_map.get(sort, sort_map["latest"])
+    if sort not in sort_map:
+        sort = "latest"
+
+    where_clause = ""
+    query_params = []
+    if search_query:
+        like_query = f"%{search_query}%"
+        where_clause = " WHERE title LIKE ? OR content LIKE ?"
+        query_params = [like_query, like_query]
+
     conn = get_db()
+    total_count = conn.execute(
+        f"SELECT COUNT(*) FROM posts{where_clause}",
+        query_params,
+    ).fetchone()[0]
+    total_pages = max(1, (total_count + per_page - 1) // per_page)
+    page = min(page, total_pages)
+    offset = (page - 1) * per_page
+
     posts = conn.execute(
-        "SELECT * FROM posts ORDER BY created_at DESC"
+        f"SELECT * FROM posts{where_clause} ORDER BY {order_by} LIMIT ? OFFSET ?",
+        (*query_params, per_page, offset),
     ).fetchall()
     conn.close()
-    return render_template("list.html", posts=posts)
+
+    return render_template(
+        "list.html",
+        posts=posts,
+        total_count=total_count,
+        page=page,
+        total_pages=total_pages,
+        has_prev=page > 1,
+        has_next=page < total_pages,
+        prev_page=page - 1,
+        next_page=page + 1,
+        search_query=search_query,
+        sort=sort,
+    )
 
 
 @app.route("/write", methods=["GET", "POST"])
