@@ -33,6 +33,8 @@ def seed_posts():
     conn = get_db_connection()
     init_posts_table(conn)
 
+    fetched_count = len(items)
+    skipped_count = 0
     inserted_count = 0
 
     for item in items:
@@ -47,6 +49,7 @@ def seed_posts():
             (title,),
         ).fetchone()
         if exists:
+            skipped_count += 1
             continue
 
         content = f"{summary}\n\n링크: {link}\n발행시간: {pub_date}"
@@ -59,7 +62,9 @@ def seed_posts():
     conn.commit()
     conn.close()
 
-    print(f"{inserted_count}건 추가됨")
+    print(f"가져온 뉴스: {fetched_count}건")
+    print(f"중복으로 건너뜀: {skipped_count}건")
+    print(f"추가됨: {inserted_count}건")
 
 
 if __name__ == "__main__":
